@@ -1,3 +1,4 @@
 variable "location" {
-  default = "eastus"
+  description = "Azure region"
+  default     = "Australia East"
 }
