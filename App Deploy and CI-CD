@@ -1,0 +1,72 @@
+App Deployment + CI/CD Pipeline
+
+✅ Objectives:
+
+    Create a simple static HTML app
+
+    Setup GitHub Actions CI/CD pipeline
+
+    Automate web app deployment
+
+🪜 Step-by-Step:
+1. 🧾 Add a Web App
+app/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Azure Terraform Demo</title>
+</head>
+<body>
+  <h1>Welcome to My Azure Web App!</h1>
+</body>
+</html>
+
+2. ⚙️ Enable Deployment Credentials in Azure
+
+az webapp deployment user set --user-name <your-name> --password <your-password>
+
+3. 🔐 Store Deployment Info in GitHub Secrets
+
+Go to GitHub → Settings → Secrets → Add:
+
+    AZURE_WEBAPP_NAME = my-webapp-demo
+
+    AZURE_WEBAPP_PUBLISH_PROFILE = XML content from:
+
+    az webapp deployment list-publishing-profiles \
+      --name my-webapp-demo \
+      --resource-group webapp-rg \
+      --xml
+
+4. 🪄 Setup GitHub Actions
+.github/workflows/main.yml
+
+name: Deploy Web App
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ./app
+
+5. 🚀 Push & Trigger Pipeline
+
+git add .
+git commit -m "Day 2: Web app & CI/CD setup"
+git push origin main
+
+✔️ Your app will deploy automatically!
