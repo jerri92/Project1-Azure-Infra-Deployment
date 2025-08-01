@@ -1,0 +1,60 @@
+Monitoring + Security + Documentation
+⏱ Time Estimate: ~5 hours
+✅ Objectives:
+
+    Add monitoring & alerts
+
+    Add RBAC & tags
+
+    Document your project
+
+🪜 Step-by-Step:
+1. 🔎 Monitoring & Alerts (using Azure CLI)
+Create a Log Analytics Workspace:
+
+az monitor log-analytics workspace create \
+  --resource-group webapp-rg \
+  --workspace-name webapp-logs
+
+Enable Diagnostics for App Service:
+
+az monitor diagnostic-settings create \
+  --name "webapp-logs" \
+  --resource $(az webapp show --name my-webapp-demo --resource-group webapp-rg --query id -o tsv) \
+  --workspace $(az monitor log-analytics workspace show --resource-group webapp-rg --workspace-name webapp-logs --query id -o tsv) \
+  --logs '[{"category": "AppServiceHTTPLogs","enabled": true}]'
+
+2. 🔐 RBAC & Tagging (in Terraform)
+
+Add to main.tf:
+
+resource "azurerm_role_assignment" "example" {
+  scope                = azurerm_resource_group.rg.id
+  role_definition_name = "Reader"
+  principal_id         = "<your-object-id>" # Find using: az ad signed-in-user show
+}
+
+resource "azurerm_resource_group" "rg" {
+  ...
+  tags = {
+    "Environment" = "Development"
+    "Owner"       = "jerin"
+  }
+}
+
+3. 📄 Finalize README.md
+
+# Azure IAC DevOps Project
+
+## 🚀 What This Project Does
+- Deploys a secure Azure Web App with Terraform
+- Uses GitHub Actions for CI/CD
+- Sets up monitoring and logging
+- Implements RBAC and tagging
+
+## 💻 Technologies Used
+- Terraform
+- Azure App Services
+- Azure CLI
+- GitHub Actions
+- VS Code
