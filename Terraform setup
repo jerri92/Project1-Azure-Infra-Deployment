@@ -1,0 +1,17 @@
+Repo Name: Azure-Infra-Deployment
+azure-iac-devops-project/
+│
+├── terraform/
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── backend.tf
+│
+├── app/
+│   └── index.html
+│
+├── .github/
+│   └── workflows/
+│       └── main.yml
+│
+└── README.md
