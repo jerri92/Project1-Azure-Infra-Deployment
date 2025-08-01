@@ -1,4 +1,4 @@
-# Project-1----Cloud-POS
+# Project1-POS
 This is a learning project to create a Point of Sale set up using the cloud resources
 
 
