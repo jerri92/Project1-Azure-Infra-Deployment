@@ -1,7 +1,7 @@
 
-. Create a new repository named `CloudPOS-Insight` on GitHub.
+. Create a new repository named `Project1-POS` on GitHub.
 2. Clone the repository locally:
    ```bash
-   git clone https://github.com/<your-username>/CloudPOS-Insight.git
+   git clone https://github.com/<your-username>/Project1-POS.git
    cd CloudPOS-Insight
    ```
