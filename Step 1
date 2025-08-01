@@ -1,0 +1,26 @@
+Step 1:
+# Step 1: Project Setup
+
+## Description
+Set up your Azure environment and initialize your GitHub repository.
+
+---
+
+## Azure Setup
+
+1. Sign in to https://portal.azure.com
+2. Create a new **Resource Group** to organize your resources.
+3. Create an **Azure App Service** to host your POS web application.
+4. Create an **Azure SQL Database** to store transaction data.
+5. Set up **Azure Event Hub** to stream transaction events for analytics.
+
+---
+
+## GitHub Repository Setup
+
+1. Create a new repository named `CloudPOS-Insight` on GitHub.
+2. Clone the repository locally:
+   ```bash
+   git clone https://github.com/<your-username>/CloudPOS-Insight.git
+   cd CloudPOS-Insight
+   ```
