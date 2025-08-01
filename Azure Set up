@@ -1,8 +1,0 @@
-
-## Azure Setup
-
-1. Sign in to https://portal.azure.com
-2. Create a new **Resource Group** to organize your resources.
-3. Create an **Azure App Service** to host your POS web application.
-4. Create an **Azure SQL Database** to store transaction data.
-5. Set up **Azure Event Hub** to stream transaction events for analytics.
