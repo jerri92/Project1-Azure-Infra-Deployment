@@ -1,4 +1,12 @@
 variable "location" {
-  description = "Azure region"
-  default     = "Australia East"
+  type    = string
+  default = "australiaeast"
+}
+
+variable "tags" {
+  type = map(string)
+  default = {
+    environment = "dev"
+    project     = "hub-spoke-network"
+  }
 }
