@@ -1,17 +1,34 @@
 Repo Name: Azure-Infra-Deployment
-azure-iac-devops-project/
 │
-├── terraform/
-│   ├── main.tf
-│   ├── variables.tf
-│   ├── outputs.tf
-│   └── backend.tf
+├── backend.tf
+├── providers.tf
+├── variables.tf
 │
-├── app/
-│   └── index.html
+├── envs/
+│   └── dev/
+│       ├── main.tf
+│       ├── variables.tf
+│       ├── outputs.tf
+│       └── terraform.tfvars
 │
-├── .github/
-│   └── workflows/
-│       └── main.yml
+├── modules/
+│   ├── network-hub/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── network-spoke/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   ├── firewall/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── peering/
+│       ├── main.tf
+│       └── variables.tf
 │
 └── README.md
