@@ -42,19 +42,4 @@ resource "azurerm_resource_group" "rg" {
   }
 }
 
-3. 📄 Finalize README.md
 
-# Azure IAC DevOps Project
-
-## 🚀 What This Project Does
-- Deploys a secure Azure Web App with Terraform
-- Uses GitHub Actions for CI/CD
-- Sets up monitoring and logging
-- Implements RBAC and tagging
-
-## 💻 Technologies Used
-- Terraform
-- Azure App Services
-- Azure CLI
-- GitHub Actions
-- VS Code
